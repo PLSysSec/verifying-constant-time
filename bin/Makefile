@@ -8,14 +8,14 @@ LOOPLIMIT     ?=1
 SUFFIX        ?=
 
 BASE           =$(notdir $(EXAMPLE))
-MODELFILE     ?=$(WD)/$(BASE:.c:.model)
+EXT           ?=$(suffix $(BASE))
+TOOLSDIR      ?=$(shell pwd)/../tools
 
-
-Z3PATH        ?=${PWD}/../tools/z3
-SMACKPATH     ?=${PWD}/../tools/smack
-BAMPATH       ?=${PWD}/../tools/bam-bam-boogieman
-BOOGIEPATH    ?=${PWD}/../tools/boogie
-CORRALPATH    ?=${PWD}/../tools/corral
+Z3PATH        ?=$(TOOLSDIR)/z3
+SMACKPATH     ?=$(TOOLSDIR)/smack
+BAMPATH       ?=$(TOOLSDIR)/bam-bam-boogieman
+BOOGIEPATH    ?=$(TOOLSDIR)/boogie
+CORRALPATH    ?=$(TOOLSDIR)/corral
 
 VERIFIER      ?=boogie
 
@@ -44,8 +44,8 @@ endif
 ## Files
 LIBSIN        ?=$(patsubst %,$(WD)/%,$(LIBS))
 SMACKIN       ?=$(WD)/$(EXAMPLE)
-SMACKOUT      ?=$(WD)/$(BASE:.c=$(SUFFIX).bpl)
-BAMOUT        ?=$(WD)/$(BASE:.c=$(SUFFIX)-instrumented.bpl)
+SMACKOUT      ?=$(WD)/$(BASE:$(EXT)=$(SUFFIX).bpl)
+BAMOUT        ?=$(WD)/$(BASE:$(EXT)=$(SUFFIX)-instrumented.bpl)
 
 ## SMACK flags
 ### Common flags

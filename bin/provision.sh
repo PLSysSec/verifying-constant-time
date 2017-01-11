@@ -47,5 +47,9 @@ sudo update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-3.5
 sudo update-alternatives --install /usr/bin/llvm-config llvm-config /usr/bin/llvm-config-3.5 20
 sudo update-alternatives --install /usr/bin/llvm-link llvm-link /usr/bin/llvm-link-3.5 20
 
+# Clone tools' and examples' projects
+git submodule init
+git submodule update
+
 # Build local version of the tools
 make local-tools
