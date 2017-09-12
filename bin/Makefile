@@ -26,8 +26,8 @@ PATH          :=$(PATH):$(SMACKPATH)/build:$(CORRALPATH)/bin
 export PATH
 
 ## Local/Specified verifiers
-export BOOGIE ?=$(BOOGIEPATH)/Binaries/Boogie.exe
-export CORRAL ?=$(CORRALPATH)/bin/Debug/corral.exe
+export BOOGIE ?=mono $(BOOGIEPATH)/Binaries/Boogie.exe
+export CORRAL ?=mono $(CORRALPATH)/bin/Debug/corral.exe
 
 ## Selecting the BAM folder based on presence in $PATH
 # TODO: do a similar thing for other tools if this works across
@@ -68,7 +68,7 @@ all: verify
 ## Generate a .bpl model from a (multi-file) C program through SMACK
 $(SMACKOUT): $(LIBSIN) $(SMACKIN)
 	@/bin/echo -en "\e[1;91mGenerating BPL model\e[0m\n"
-	smack.py $(FRONTFLAGS) -bpl $(SMACKOUT) $(LIBSIN) $(SMACKIN)
+	smack $(FRONTFLAGS) -bpl $(SMACKOUT) $(LIBSIN) $(SMACKIN)
 
 smackout: $(SMACKOUT)
 
