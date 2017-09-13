@@ -32,9 +32,9 @@ CMAKE_INSTALL_PREFIX=
 # Partial list of dependnecies; the rest are added depending on the platform
 DEPENDENCIES="cmake python-yaml unzip wget"
 
-Z3_DOWNLOAD_LINK="https://github.com/Z3Prover/z3/releases/download/z3-4.4.1/z3-4.4.1-x64-ubuntu-14.04.zip"
+#Z3_DOWNLOAD_LINK="https://github.com/Z3Prover/z3/releases/download/z3-4.4.1/z3-4.4.1-x64-ubuntu-14.04.zip"
 DEPENDENCIES+=" clang-3.8 llvm-3.8 mono-complete libz-dev libedit-dev"
-DEPENDENCIES+=" ruby2.2"
+DEPENDENCIES+=" ruby2.3"
 
 # Install core dependencies from packages
 #sudo add-apt-repository "deb http://llvm.org/apt/trusty/ llvm-toolchain-trusty-3.8 main"
