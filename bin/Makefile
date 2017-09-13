@@ -95,9 +95,7 @@ local-update:
 	git submodule update
 
 local-z3:
-	mkdir $(Z3PATH)/build -p
-	cd $(Z3PATH) && ./configure
-	cd $(Z3PATH)/build && make
+	cd $(Z3PATH) && CXX=clang++ CC=clang python scripts/mk_make.py && cd build && make
 
 clean-local-z3:
 	rm -rf $(Z3PATH)/build
@@ -107,7 +105,7 @@ local-boogie:
 	ln -f -s $(Z3PATH)/build/z3 $(BOOGIEPATH)/Binaries/z3.exe
 
 clean-local-boogie:
-	rm $(BOOGIEPATH)/Binaries/z3.exe
+	rm -f $(BOOGIEPATH)/Binaries/z3.exe
 
 local-smack:
 	mkdir -p $(SMACKPATH)/build

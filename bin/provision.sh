@@ -38,8 +38,8 @@ DEPENDENCIES+=" ruby2.2"
 
 # Install core dependencies from packages
 #sudo add-apt-repository "deb http://llvm.org/apt/trusty/ llvm-toolchain-trusty-3.8 main"
-${WGET} -O - http://llvm.org/apt/llvm-snapshot.gpg.key | sudo apt-key add -
-sudo add-apt-repository ppa:brightbox/ruby-ng-experimental # for ruby2.2
+#${WGET} -O - http://llvm.org/apt/llvm-snapshot.gpg.key | sudo apt-key add -
+#sudo add-apt-repository ppa:brightbox/ruby-ng-experimental # for ruby2.2
 sudo apt-get update
 sudo apt-get install -y ${DEPENDENCIES}
 sudo update-alternatives --install /usr/bin/clang clang /usr/bin/clang-3.8 20
