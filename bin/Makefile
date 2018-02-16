@@ -26,8 +26,8 @@ PATH          :=$(PATH):$(SMACKPATH)/build:$(CORRALPATH)/bin
 export PATH
 
 ## Local/Specified verifiers
-export BOOGIE ?=$(BOOGIEPATH)/Binaries/Boogie.exe
-export CORRAL ?=$(CORRALPATH)/bin/Debug/corral.exe
+export BOOGIE ?=mono $(BOOGIEPATH)/Binaries/Boogie.exe
+export CORRAL ?=mono $(CORRALPATH)/bin/Debug/corral.exe
 
 ## Selecting the BAM folder based on presence in $PATH
 # TODO: do a similar thing for other tools if this works across
@@ -87,8 +87,9 @@ verify: $(BAMOUT)
 # Set up env. vars. (source the result)
 setup:
 	@echo "# If you can read this, you should use \"eval \`make setup\`\" instead\n"
-	@echo "BOOGIE=$(BOOGIE); export BOOGIE;"
-	@echo "CORRAL=$(CORRAL); export CORRAL;"
+#	@echo "BOOGIE=$(BOOGIE); export BOOGIE;"
+	@echo "BOOGIE=mono $(BOOGIE); export BOOGIE;"
+#	@echo "CORRAL=$(CORRAL); export CORRAL;"
 
 # Targets for updating and making local tools in local submodules
 local-update:

@@ -52,4 +52,4 @@ git submodule init
 git submodule update
 
 # Build local version of the tools
-make local-tools
+#make local-tools
